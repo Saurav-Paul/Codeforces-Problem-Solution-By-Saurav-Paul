@@ -1,0 +1,21 @@
+#include<iostream>
+using namespace std;
+int main()
+{
+    int n,k,ara[60],ans=0;
+    cin>>n>>k;
+    for(int i=0; i<n; i++)
+    {
+        cin>>ara[i];
+    }
+    for(int i=0; i<n; i++)
+    {
+        if(ara[i]<1)
+            continue;
+        else if(ara[i]>=ara[k-1]){
+        ans++;
+        }
+    }
+    cout<<ans<<endl;
+    return 0;
+}

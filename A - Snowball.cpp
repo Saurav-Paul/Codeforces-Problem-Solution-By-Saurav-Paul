@@ -47,7 +47,7 @@ void FAST_IO() {
     //cout.setf(ios::fixed);
     //cout.precision(20);
     #ifndef _offline
-     freopen("input.txt", "r", stdin);
+    //freopen("input.txt", "r", stdin);
     //freopen("output.txt", "w", stdout);
     #endif
 }

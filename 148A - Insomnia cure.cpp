@@ -54,3 +54,4 @@ void FAST_IO()
     //freopen("output.txt", "w", stdout);
 #endif
 }
+

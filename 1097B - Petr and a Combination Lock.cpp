@@ -26,12 +26,12 @@ ll n;
 ll find_out(ll lvl, ll value){
     if(lvl==n+1){
         if(value)
-            return 2 ;
+            return 0 ;
         return 1 ;
     }
     if(store[lvl][value]) 
         return store[lvl][value];
-    store[lvl][value]= min(find_out(lvl+1 , (value+level[lvl])%360 ) , find_out(lvl+1 , (value+360-level[lvl])%360));
+    store[lvl][value]= max(find_out(lvl+1 , (value+level[lvl])%360 ) , find_out(lvl+1 , (value+360-level[lvl])%360));
     return store[lvl][value];
 }
 int main()
@@ -44,7 +44,7 @@ int main()
         
         cin>> level[i];
     }
-    if(find_out(1,0)==1)
+    if(find_out(1,0))
         cout<<"YES"<<endl;
     else
         cout<<"NO"<<endl;

@@ -78,9 +78,6 @@ int main()
         
         rem=max(rem,day);
     }
-    fn=50;
-    while(fn<100)
-        fn++;
     cout<<days+rem<<endl;
     ////////////////////////
     if(rt && file){

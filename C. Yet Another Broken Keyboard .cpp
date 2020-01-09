@@ -22,7 +22,7 @@ int main()
 	s += '0';
 
 	long long int ans = 0;
-	for(int i = 0, cnt = 0 ; i <= n ; i++){
+	for(long long int i = 0, cnt = 0 ; i <= n ; i++){
 		if(s[i] == '0'){
 			ans += ( ( cnt*(cnt+1) ) >> 1 ) ;
 			cnt = 0;

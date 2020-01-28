@@ -32,7 +32,6 @@ void solve() {
   prob.emplace_back(-1, T);
   
   long long  total = 0 , mx = 0 ;
-
   {
     long long  ex = prob[0].second - 1;
     if(ex > 0){

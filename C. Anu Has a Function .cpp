@@ -29,7 +29,7 @@ class TC{
                 if(x&(1 << i)) bit[i] ++ ;
             }
         }
-
+        
         bool cholbe = true ;
         for(int b = 30 ; b >= 0 && cholbe ; b--){
             if(bit[b] == 1){

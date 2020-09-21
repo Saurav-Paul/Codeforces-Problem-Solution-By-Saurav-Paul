@@ -55,7 +55,7 @@ class Segment_tree{
         }
     }
 
-    void build(vector<int> v , int node , int st, int sp){
+    void build(vector<int> &v , int node , int st, int sp){
         if(st == sp){
             tree[node] = {v[st],1} ;
         }

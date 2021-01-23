@@ -1,0 +1,55 @@
+
+/**
+ *    author        : Saurav Paul 
+ *    created       : November 23, 2020 8:37 AM
+ *    Problem Name  : A - Far Relative’s Birthday Cake
+ *    Problem Limit : 1000 ms , 262 MB
+ *    Problem Url   : https://codeforces.com/problemset/problem/629/A
+ *    @genarated by : ai-virtual-assistant
+**/
+
+#include<bits/stdc++.h>
+using namespace std;
+
+using ll = long long int ;
+
+class TC{
+
+    public :
+    void solve(){
+        int n ;
+        cin >> n ; 
+        vector<string> v(n) ;
+        
+        for(int i = 0 ; i < n ; i++){
+            cin >> v[i] ;
+        }
+
+        int cnt = 0 ;
+
+        for(int i = 0 ; i < n ;i++){
+            int x = 0 , y = 0;
+            for(int j = 0 ; j < n; j++){
+                if(v[i][j] == 'C') x ++ ;
+                if(v[j][i] == 'C') y ++ ;
+            }
+            cnt += ((x*(x-1))/2) ;
+            cnt += ((y*(y-1))/2) ;
+        }
+
+        cout << cnt << endl ;
+
+    }
+};
+
+int main(){
+    ios_base::sync_with_stdio(false);
+
+    int testcases = 1;
+    for(int i = 1 ; i <= testcases ; i ++){
+        TC tc;
+        tc.solve() ;
+    }
+
+    return 0 ;
+}

@@ -1,0 +1,72 @@
+#include <bits/stdc++.h>
+#define int long long
+#define inf 5e18
+#define MOD (int)(1e9 + 7)
+#define pb push_back
+#define vi vector<int>
+#define test  \
+    int t;    \
+    cin >> t; \
+    while (t--)
+#define fast                       \
+    ios_base ::sync_with_stdio(0); \
+    cin.tie(NULL);                 \
+    cout.tie(NULL)
+using namespace std;
+
+
+int n, L;
+const int N = 1e5+1;
+vector<double> a(N);
+double eps = 1e-6;
+
+/*
+    Idea is : For a particular time, find the position of both cars reach in this much amount of time.
+    If the cars have already met, return true and find a time less than current time, if not then 
+    find a time greater than the current.
+*/
+
+
+
+bool good(double m) {
+    double time1 = m, time2 = m;
+    double speed1 = 1, speed2 = 1;
+    double pos1 = 0, pos2 = L;
+    for(int i=1;i<=n+1;i++) {
+        if(speed1*time1*1.0f >= 1.0f*((a[i]-a[i-1]))) pos1 += 1.0f*(a[i]-a[i-1]), time1 -= (1.0f*(a[i]-a[i-1]))/speed1, speed1++;
+        else pos1 += 1.0f*speed1*time1, time1 = 0;
+        time1 = max(time1, (double)0);
+    }
+    for(int i=n;i>=0;i--) {
+        if(speed2*time2*1.0f >= 1.0f*(a[i+1]-a[i])) pos2 -= 1.0f*(a[i+1]-a[i]), time2 -= (1.0f*(a[i+1]-a[i]))/speed2, speed2++;
+        else pos2 -= 1.0f*speed2*time2, time2 = 0;
+        time2 = max(time2, (double)0);
+    }
+    if((pos2-pos1) <= 0.00001) return true;
+    return false;
+}
+
+double f() {
+    double l = 0, r = L;
+    double ans = l;
+    for(int i=0;i<200 && l+eps <= r;i++) {
+        double mid = (l+r)*0.5f;
+        if(good(mid)) ans = mid, r = mid;
+        else l = mid;
+    }
+    return ans;
+}
+signed main()
+{
+    fast;
+    test {
+        cin>>n>>L;
+        a.resize(n+2);
+        for(int i=1;i<=n;i++) cin>>a[i];
+        a[0] = 0, a[n+1] = L; 
+        cout<<fixed<<setprecision(16);
+        cout<<f()<<"\n";
+    }
+    return 0;   
+}
+
